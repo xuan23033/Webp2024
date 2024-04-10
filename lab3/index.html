@@ -1,6 +1,6 @@
 <html>
  <body>
-		<button onclick="getimg()">Get ING</button>
+		<button onclick="getimg()">Get IMG</button>
 		<div id='gallery' class="gallery"></div>
 	</body>
 	
@@ -54,10 +54,11 @@
 		
 		  function add_new_img(photos) {
 				var gal = document.getElementById("gallery");
+				var apiKey = 'ca370d51a054836007519a00ff4ce59e';
+				var imgSizesUrl = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=ca370d51a054836007519a00ff4ce59e&photo_id=53608779187&format=json&nojsoncallback=1';
 				photos.forEach(function(photo) {
-						var img_Url = 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=ca370d51a054836007519a00ff4ce59e&photo_id=53608779187&format=json&nojsoncallback=1';
 						var xhr = new XMLHttpRequest();
-						xhr.open('GET', img_Url, true);
+						xhr.open('GET', imgSizesUrl, true);
 						xhr.send();
 						xhr.onload = function() {
 							var sizesData = JSON.parse(this.responseText);
